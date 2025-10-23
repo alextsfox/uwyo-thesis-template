@@ -74,20 +74,20 @@
 \begin{document}
 
 % front matter
-\pagenumbering{gobble}
+\pagenumbering{gobble}  % committee page has no number
 \input{front/committee}
 
 \newpage
-\pagenumbering{arabic}
+\pagenumbering{arabic}  % abstract is page "1"
 \setcounter{page}{1}
 \input{front/abstract}
 
 \newpage
-\pagenumbering{gobble}
+\pagenumbering{gobble}  % title page has no printed number
 \input{front/title}
 
 \newpage
-\pagenumbering{roman}
+\pagenumbering{roman}  % front matter starts after the title at page "ii"
 \setcounter{page}{2}
 % \newpage
 % \input{front/copyright}  % optional
@@ -99,8 +99,9 @@
 
 % main text
 \newpage
-\pagenumbering{arabic}
-\setcounter{page}{1}  % \chapter will increment to 1
+\pagenumbering{arabic}  % main text starts at page "1"
+\setcounter{page}{1} 
+% these are suggested chapter names, you may call your chapter files whatever you want
 \input{text/introduction}
 \input{text/chapter-2}
 \input{text/chapter-3}
