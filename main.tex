@@ -1,0 +1,114 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Welcome to the University of Wyoming Disseration Template. %
+% For documentation on using and navigating the template,    %
+% Please refer to the "README.md" file located in the root   %
+% directory.                                                 %
+%                                                            %
+% This document is used to construct your dissertation by    %
+% linking together all the important sections, such as your  %
+% front matter(abstract, title page, etc), body text and     %
+% chapters, your references, and any appendices              %
+%                                                            %
+% This is also where you will define any important variables %
+% such as your name, dissertation title, committee members,  %
+% etc.                                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+% Allowed headings are:
+% \part{}, \chapter{}, \section{}, \subsection{}, \subsubsection{}, \paragraph{}, \subparagraph{}
+
+% \linenumbers  % uncomment this line to distribute as a draft
+\input{backend/preamble}  % imports, formatting
+\input{macros}  % user-defined macros
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography files
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addbibresource{references/example_references.bib} % example
+% you may add multiple .bib files
+% \addbibresource{references/chapter2.bib}
+% \addbibresource{references/chapter3.bib}
+% \addbibresource{references/chapter4.bib}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Crucial information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Title
+\def\ThesisTitle{A Study of Studying: An Examination of Examining Examinations}
+
+% Name
+\def\FirstName{Benjamin}
+\def\MI{R.}
+\def\LastName{Franklin}
+
+% Degree and Program
+\def\Program{Program in Water Resources, Environmental Science, and Engineering}
+\def\DegreeName{Hydrologic Science} % Do not include "Ph.D."
+
+% Important Dates
+\def\GraduationMY{December, 2025}
+\def\DefenseMDY{November 10, 2025}
+
+% Committee Members
+% Comment and uncomment members to add/remove them from your committee list.
+% If you add additional members beyond member seven, such as MemberEight or a second external member, you will need to modify the committee.tex file.
+\def\Chair{Dr. Jean-Luc Piccard}
+\def\OutsideMember{Dr. William T. Riker}
+\def\MemberThree{Dr. Geordi La Forge}
+\def\MemberFour{Dr. Beverly Crusher}
+\def\MemberFive{Dr. Miles O'Brien}
+% \def\MemberSix{Dr. Deanna Troi}  % uncomment to add a sixth member
+% \def\MemberSeven{Dr. Jim Shimoda}  % uncomment to add a seventh member
+\def\ExternalMember{Dr. Gowron}  % comment out to remove the external member
+
+\def\ProgramDirector{Dr. Andrew Parsekian}
+\def\Dean{Dr. James C. Ahern, Associate Vice Provost, Graduate Education}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% front matter
+\pagenumbering{gobble}
+\input{front/committee}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{front/abstract}
+
+\newpage
+\pagenumbering{gobble}
+\input{front/title}
+
+\newpage
+\pagenumbering{roman}
+\setcounter{page}{2}
+% \newpage
+% \input{front/copyright}  % optional
+\input{front/acknowledgments}
+% \newpage
+% \input{front/dedication}  % optional
+\input{front/table-of-contents}
+\input{front/list-of-tables-and-figures}
+
+% main text
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}  % \chapter will increment to 1
+\input{text/introduction}
+\input{text/chapter-2}
+\input{text/chapter-3}
+\input{text/chapter-4}
+% you may add additional chapters to the "text" directory
+% \input{text/chapter-5}
+% \input{text/chapter-6}
+\input{text/conclusion}
+
+\singlespacing
+\printbibliography
+
+\end{document}

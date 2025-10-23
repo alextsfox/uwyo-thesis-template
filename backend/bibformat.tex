@@ -1,0 +1,163 @@
+% define how to print all the common bib entry types
+
+% journal article
+\DeclareBibliographyDriver{article}{%
+  \printnames{author}\setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}%
+  \printfield[titlecase]{title}%
+  \setunit{\addperiod\space}%
+  \printfield{journaltitle}%
+  \setunit{\space}%
+  \printfield{volume}%
+  \iffieldundef{number}{}{%
+    \printtext[parens]{\printfield{number}}}%
+  \setunit{\addcomma\space}%
+  \printfield{pages}%
+  \setunit{\addperiod\space}
+  \usebibmacro{pageref}
+  \finentry%
+}
+
+% book
+\DeclareBibliographyDriver{book}{%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}
+  % title, edition, volume, editor
+  \printfield[titlecase,emph]{title}
+  \iffieldundef{edition}{}{\addcomma\space\printfield{edition}}%
+  \iffieldundef{volume}{}{\addcomma\space\printfield{volume}}%
+  \ifnameundef{editor}{}{
+    \addcomma\space\printtext{Ed.\space by\space}\printnames{editor}%
+  }%
+  \setunit{\addperiod\space}
+  % Series, publisher
+  \iffieldundef{series}{}{\printfield{series}}%
+  \iflistundef{publisher}{}{\addcomma\space\printlist{publisher}}%
+  \setunit{\addperiod\space}
+  % Page total
+  \iffieldundef{pagetotal}{}{\printfield{pagetotal}}%
+  \setunit{\addperiod\space}
+  % ISBN
+  \iffieldundef{isbn}{}{\printfield{isbn}}%
+  \setunit{\addperiod\space}
+  \usebibmacro{pageref}
+  \finentry
+}
+
+%report
+\DeclareBibliographyDriver{report}{%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}
+  % title, edition, volume, editor
+  \printfield[titlecase,emph]{title}
+  \setunit{\addperiod\space}
+  \iffieldundef{type}{}{\printfield{type}}
+  \iffieldundef{number}{}{\printfield{number}}
+  \setunit{\addperiod\space}
+  % Series, publisher
+  \iffieldundef{series}{}{\printfield{series}}%
+  \setunit{\addperiod\space}
+  \iflistundef{publisher}{}{\addcomma\space\printlist{publisher}}%
+  \setunit{\addperiod\space}
+  \iflistundef{institution}{}{\printlist{institution}}
+  \iflistundef{location}{}{\setunit{\addcomma\space}\printlist{location}}
+  \setunit{\addperiod\space}
+  \setunit{\addperiod\space}
+  \iffieldundef{doi}{}{\printfield{doi}}%
+  \setunit{\addperiod\space}
+  \usebibmacro{pageref}
+  \finentry
+}
+
+% software
+\DeclareBibliographyDriver{software}{%
+  \printnames{author}%
+  \setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}%
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \iffieldundef{version}{}{\printfield{version}\addperiod\space}%
+  \printtext{Software\addperiod\space}
+  \iffieldundef{company}{}{\printfield{company}\addperiod\space}%
+  \iffieldundef{doi}{}{\printfield{doi}\addperiod\space}%
+  \iffieldundef{url}{}{%
+    \printfield{url}%
+    \setunit{\space}
+    \printurldate
+    \setunit{\addperiod\space}%
+  }%
+  \usebibmacro{pageref}
+  \finentry
+}
+
+
+% misc includes datasets, maps, and preprints
+\DeclareBibliographyDriver{misc}{%
+  % Authors
+  \printnames{author}%
+  \setunit{\addspace}%
+  % Year
+  \iffieldundef{year}{}{\printtext[parens]{\printfield{year}\printfield{extrayear}}}%
+  \setunit{\addperiod\space}%
+  % Title in italics
+  \printfield{title}%
+  \setunit{\addperiod\space}%
+  \iflistundef{publisher}{}{\printlist{publisher}}
+  \setunit{\addperiod\space}%
+  % DOI
+  \iffieldundef{doi}{}{\printfield{doi}\addperiod\space}%
+  % URL
+  \iffieldundef{url}{}{%
+    \printfield{url}%
+    \setunit{\space}
+    \printurldate
+    \setunit{\addperiod\space}%
+  }%
+  \usebibmacro{pageref}
+  \finentry
+}
+
+% Thesis
+\DeclareBibliographyDriver{thesis}{%
+  \printnames{author}\setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}%
+  \printfield[titlecase]{title}%
+  \setunit{\addperiod\space}%
+  \printtext[parens]{\printfield{type}}\setunit{\addperiod\space}%
+  \iffieldundef{url}{}{%
+    \printfield{url}%
+    \setunit{\space}
+    \printurldate
+    \setunit{\addperiod\space}%
+  }%
+  \iflistundef{location}{}{\printlist{location}\setunit{:\space}}%
+  \printlist{institution}\setunit{\addperiod\space}%
+  \usebibmacro{pageref}
+  \finentry%
+}
+
+% conference paper or proceedings
+\DeclareBibliographyDriver{inproceedings}{%
+  \printnames{author}\setunit{\addspace}%
+  \printtext[parens]{\printfield{year}\printfield{extrayear}}%
+  \setunit{\addperiod\space}%
+  \printfield[titlecase]{title}%
+  \setunit{\addperiod\space}%
+  \iffieldundef{booktitle}{}{\printfield[titlecase,emph]{booktitle}}%
+  \ifnameundef{editor}{}{\addcomma\space\printtext{Ed.\space by\space}\printnames{editor}}%
+  \setunit{\addperiod\space}%
+  \iffieldundef{eventtitle}{}{\printfield{eventtitle}}
+  \iflistundef{location}{}{\setunit{\addcomma\space}\printlist{location}}
+  \setunit{\addperiod\space}
+  \printfield{pages}%
+  \setunit{\addperiod\space}%
+  \usebibmacro{pageref}
+  \finentry%
+}

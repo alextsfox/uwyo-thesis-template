@@ -1,0 +1,81 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic imports
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{url}  % for nicely formatted urls
+\usepackage{lineno}  % enable/disable line numbering
+\usepackage{soul}  % used for the trackchanges package, not used
+\usepackage{amsmath}  % for formatting equations
+\usepackage{amsfonts}  % for formatting equations
+\usepackage{graphicx}  % better support for floats
+\usepackage{placeins}  % better float placement, including \FloatBarrier
+\usepackage{booktabs}  % new macros for use in tables, like \midrule, \toprule, etc
+\usepackage{rotating}  % sideways figures and tables
+\usepackage{xcolor}  % colored text
+\usepackage{lipsum}  % lorem ipsum text
+\usepackage[  % paper geometry and margins
+    paperheight=11in,
+    paperwidth=8.5in,
+    top=1in,
+    bottom=1in,
+    left=1in,
+    right=1in,
+]{geometry}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography and citation formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Citations, back-references, internal references, and URLs will appear as clickable links in the compiled PDF.
+
+% uncomment either option 1 or 2 depending on your bibliography preference
+% option 1: numbered citations with in-order bibliography
+\usepackage[
+    backend=biber,
+    doi=false,
+    url=false,
+    eprint=false,
+    style=numeric,
+    sorting=none,
+    hyperref=true,
+    backref=true,
+    backrefstyle=three
+]{biblatex}
+
+% % option 2: (Author, Year) with alphabetic bibliography
+% \usepackage[
+    % backend=biber,
+    % style=authoryear,
+    % doi=false,
+    % url=false,
+    % eprint=false,
+    % hyperref=true,
+    % backref=true,
+    % backrefstyle=three
+% ]{biblatex}
+
+% custom colors for in-text hyperlinks
+\definecolor{navy}{RGB}{0,0,128}
+\definecolor{darknavy}{RGB}{0,0,75}
+\usepackage[
+    colorlinks=true,
+    urlcolor=darknavy,
+    linkcolor=navy,
+    citecolor=navy
+]{hyperref}
+
+% this command does some bespoke formatting on 
+% the bibliography. To use biblatex/biber's default style,
+% comment it out
+\input{backend/bibformat}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% generic formatting stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\raggedright  % no right margin justification
+\doublespacing  % text spacing
+\setlength{\parindent}{2em}  % paragraphs are indented the width of "M"
+
+% for messing with section heading fonts
+\usepackage{sectsty}
+\chapternumberfont{\LARGE} 
+\chaptertitlefont{\huge}

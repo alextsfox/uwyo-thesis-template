@@ -1,0 +1,32 @@
+% handling citations
+\newcommand{\citeA}{\textcite}
+\renewcommand{\cite}{\parencite}
+\newcommand{\citet}{\textcite}
+\newcommand{\citep}{\parencite}
+
+% These unicode characters sometimes break latex, so they are highlighted red in the compiled document. comment these lines out if you want to.
+\DeclareUnicodeCharacter{2212}{\textcolor{red}{BAD!!}}
+\DeclareUnicodeCharacter{200E}{\textcolor{red}{BAD!!}}
+\DeclareUnicodeCharacter{200}{\textcolor{red}{BAD!!}}
+
+% insert a glossary section, use as
+% \begin{glossary}
+%   \term{name} definition
+%   \term{name} definition
+% \end{glossary}
+\def\glossary{\bgroup
+\section*{Glossary}
+\description
+\def\term##1{\item[##1]}}
+\def\endglossary{\enddescription\vskip12pt\egroup}
+
+% sideways tables and floats
+% use as 
+% \begin{sidewaysfigure} ... \end{sidewaysfigure}
+% \begin{sidewaystable} ... \end{sidewaystable}
+% instead of \begin{figure} ...\end{figure}
+\newif\ifturnofflinenums
+\let\savesidewaystable\sidewaystable
+\let\savesidewaysfigure\sidewaysfigure
+\def\sidewaystable{\turnofflinenumstrue\savesidewaystable\centering}
+\def\sidewaysfigure{\turnofflinenumstrue\savesidewaysfigure\centering}

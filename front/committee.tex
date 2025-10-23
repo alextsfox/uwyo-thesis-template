@@ -1,0 +1,73 @@
+% This page should be mostly taken care of your you automatically. You should only need to edit it if you have more than 7 committee members.
+% \newpage
+% \pagenumbering{gobble}
+
+To the University of Wyoming:\\
+
+\quad The members of the Committee approve the dissertation of \FirstName\ \MI\ \LastName\ presented on \DefenseMDY.\\
+
+% This ensures that the vertical spacing between committee members' names is sufficient
+% If you want to do this manually, comment out the entire conditional block and replace with:
+% \newcommand{\committeevspace}{\vspace{0.6in}}
+% or whatever spacing works for you.
+
+% beginning of conditional block
+\ifdefined\MemberSeven  % 7-8 committee members
+    \ifdefined\ExternalMember
+        \newcommand{\committeevspace}{\vspace{0.4in}}
+    \else
+        \newcommand{\committeevspace}{\vspace{0.5in}}
+    \fi
+\else\ifdefined\MemberSix  % 6-7 committee members
+    \ifdefined\ExternalMember
+        \newcommand{\committeevspace}{\vspace{0.5in}}
+    \else
+        \newcommand{\committeevspace}{\vspace{0.6in}}
+    \fi
+\else\ifdefined\MemberFive  % 6 committee members
+    \ifdefined\ExternalMember
+        \newcommand{\committeevspace}{\vspace{0.6in}}
+    \fi
+\else  % 5 or fewer committee members
+    \newcommand{\committeevspace}{\vspace{0.8in}}
+\fi\fi\fi
+% end of conditional block
+
+\committeevspace
+
+\begin{flushright}
+
+\Chair, Chairperson\\
+\committeevspace
+\OutsideMember, Outside Member\\
+\committeevspace
+\MemberThree\\
+\ifdefined\MemberFour
+    \committeevspace
+    \MemberFour\\
+\fi
+\ifdefined\MemberFive
+    \committeevspace
+    \MemberFive\\
+\fi
+\ifdefined\MemberSix
+    \committeevspace
+    \MemberFive\\
+\fi
+\ifdefined\MemberSeven
+    \committeevspace
+    \MemberFive\\
+\fi
+\ifdefined\ExternalMember
+    \committeevspace
+    \ExternalMember, External Member\\
+\fi
+\committeevspace
+\end{flushright}
+
+\vspace*{\fill}
+APPROVED:
+
+\quad \ProgramDirector, Director, \Program
+
+\quad \Dean
