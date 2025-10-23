@@ -15,13 +15,15 @@ This template is divided up into five sections:
 6. Backend
 
 # Using the Template
-You can use this template locally or upload it to an empty project on Overleaf. After you upload to Overleaf, go into the menu (on the top-left when inside the project), change the compiler to "pdfLaTeX", and set Main Document to "main.tex". Alternatively, you can 
+You can use this template locally or duplicate it on Overleaf at https://www.overleaf.com/read/cnrfxvvxnktw#6fe1b8. Alternatively, you can manually upload it to an empty project on Overleaf. If you do so, make sure to go into the menu (on the top-left when inside the project), change the `Compiler` option to "pdfLaTeX", and set `Main Document` option to "main.tex". 
 
 # Main Files
 The main files are what is used to set up the structure and formatting of the document. 
 
 * `main.tex` is where you you link your individual chapters and write your name, dissertation title, committee member names, and any other important information. Start here!
 * `macros.tex` includes any user-defined macros you might use in your text. I recommend placing any macros you define in this file. Includes several pre-defined macros to help debug text, insert citations, place sideways figures, and insert a glossary section.
+* `README.md`, this file
+* `LICENSE`, the software license.
 
 # Front matter
 The committe page, abstract, acknowledgments, copyright, dedication, table/figure list, table of contents, and title page are included in the `front/` directory. These should auto-configure themselves. 
