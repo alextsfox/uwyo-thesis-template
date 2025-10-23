@@ -26,7 +26,7 @@ The main files are what is used to set up the structure and formatting of the do
 * `LICENSE`, the software license.
 
 # Front matter
-The committe page, abstract, acknowledgments, copyright, dedication, table/figure list, table of contents, and title page are included in the `front/` directory. These should auto-configure themselves. 
+The committe page, abstract, acknowledgments, copyright, dedication, table/figure list, table of contents, and title page are included in the `front/` directory. These should auto-configure themselves.  
 
 # Text
 The main text of your dissertation (ie your chapters) sits in the `text/` directory: the introduction, body chapters, and conclusion live here.
